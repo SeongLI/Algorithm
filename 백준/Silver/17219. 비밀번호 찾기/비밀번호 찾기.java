@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -13,7 +14,7 @@ public class Main {
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 		
-		HashMap<String, String> hash = new HashMap<>(); // key & value 구분
+		Map<String, String> hash = new HashMap<>(); // key & value 구분
 		for(int i = 0 ; i < N ; i++) {
 			st = new StringTokenizer(br.readLine());
 			String Adress = st.nextToken();
