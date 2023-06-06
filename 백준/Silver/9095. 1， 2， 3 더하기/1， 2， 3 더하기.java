@@ -4,7 +4,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-//		1 2 4 7 13 24 44 ... 앞 3개 합이네
+//		1 2 4 7 13 24 44 앞에 3개 합이다
 
 		int[] dp = new int[10 + 1];
 		dp[1] = 1;
