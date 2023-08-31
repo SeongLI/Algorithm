@@ -2,17 +2,17 @@ import java.util.*;
 class Solution {
     public int[] solution(int n) {
 
-        Stack<Integer> stack = new Stack<>();
+        Queue<Integer> q = new LinkedList<>();
         
         for(int i = 1 ; i <= n ; i++){
             if( i%2 != 0 ){
-                stack.push(i);
+                q.add(i);
             }
         }
         
-        int[] answer = new int[stack.size()];
+        int[] answer = new int[q.size()];
         for(int i = 0 ; i < answer.length ; i++){
-            answer[i] = stack.pop();
+            answer[i] = q.poll();
         }
         Arrays.sort(answer);
             
