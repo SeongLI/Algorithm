@@ -10,5 +10,8 @@ class Solution {
         }
         
         return answer;
+        // 정규 표현식 
+        // return my_string.trim().split("\\s+");
+        // return my_string.trim().split("[ ]+");
     }
 }
