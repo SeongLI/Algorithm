@@ -1,0 +1,17 @@
+class Solution {
+    public String solution(String rsp) {
+        String[] str_arr = rsp.split("");
+        StringBuilder sb = new StringBuilder();
+        
+        for(int i = 0 ; i < rsp.length() ; i++){
+            if(str_arr[i].equals("0")){
+                sb.append("5");
+            } else if( str_arr[i].equals("2")){
+                sb.append("0");
+            } else{
+                sb.append("2");
+            }
+        }
+        return sb.toString();
+    }
+}
