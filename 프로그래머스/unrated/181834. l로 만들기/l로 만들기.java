@@ -1,7 +1,5 @@
-import java.util.Arrays;
 class Solution {
     public String solution(String myString) {
-        String answer = "";
         char[] ch_arr = myString.toCharArray();
 
         StringBuilder sb = new StringBuilder();
