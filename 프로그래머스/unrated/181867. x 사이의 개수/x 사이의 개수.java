@@ -1,7 +1,7 @@
 class Solution {
     public int[] solution(String myString) {
         int[] answer = {};
-         if(myString.charAt(myString.length()-1) == 'x'){
+         if(myString.endsWith("x")){
             String[] str_arr = myString.split("x");
             int[] result = new int[str_arr.length + 1];
             for(int i = 0 ; i < str_arr.length ; i++){
