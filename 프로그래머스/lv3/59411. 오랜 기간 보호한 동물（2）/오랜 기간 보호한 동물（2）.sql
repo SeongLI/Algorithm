@@ -1,0 +1,9 @@
+-- 코드를 입력하세요
+# 입양을 간 동물 중,
+# 보호 기간(입양일 - 보호 시작일)이 긴 순으로 조회 ANIMAL_ID,	NAME
+SELECT O.ANIMAL_ID, O.NAME
+FROM ANIMAL_INS AS I JOIN ANIMAL_OUTS AS O
+ON I.ANIMAL_ID = O.ANIMAL_ID
+ORDER BY (O.DATETIME - I.DATETIME) DESC
+LIMIT 2
+;
