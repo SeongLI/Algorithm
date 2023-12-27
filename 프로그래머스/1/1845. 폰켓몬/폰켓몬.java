@@ -10,11 +10,12 @@ class Solution {
             map.put(nums[i], map.getOrDefault(nums[i], 1));
         }
         
-        int count = 0;
-        for(Integer index : map.keySet()){
-            if(map.get(index) == 1) count ++;
-        }
+        // int count = 0;
+        // for(Integer index : map.keySet()){
+        //     if(map.get(index) == 1) count ++;
+        // }
         
+        int count = map.size();
         if(count <= result_len) return count;
         else return result_len;
     }
