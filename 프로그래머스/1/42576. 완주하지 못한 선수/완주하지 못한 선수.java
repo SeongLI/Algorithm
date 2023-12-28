@@ -13,10 +13,12 @@ class Solution {
             map.put(completion[i], map.get(completion[i]) - 1);
         }
         
+        String answer = "";
+        
         for(String key : map.keySet()){
-            if(map.get(key) != 0) return key;
+            if(map.get(key) != 0) answer = key;
         }
-        return "99999999";
+        return answer;
         
     }
 }
