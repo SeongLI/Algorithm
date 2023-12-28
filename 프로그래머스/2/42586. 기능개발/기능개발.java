@@ -6,8 +6,9 @@ class Solution {
         
         for(int i = 0 ; i < speeds.length ; i++){
             int remain = 100 - progresses[i]; 
-            if(remain % speeds[i] == 0) arr[i] = remain / speeds[i];
-            else arr[i] = remain / speeds[i] + 1;
+            // if(remain % speeds[i] == 0) arr[i] = remain / speeds[i];
+            // else arr[i] = remain / speeds[i] + 1;
+            arr[i] = (remain % speeds[i] == 0) ?  remain / speeds[i] : remain / speeds[i] + 1 ;
         }
         
         System.out.println(Arrays.toString(arr));
