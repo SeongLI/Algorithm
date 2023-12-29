@@ -8,17 +8,14 @@ class Solution {
             pq.add(priorities[i]);
         }
         
-        int ans = 1;
-        
+        int answer = 1;
         while(!pq.isEmpty()){
-             System.out.println("pq : " + pq);
-
-            for(int i = 0 ; i < priorities.length; i++){
+            for(int i = 0 ; i < priorities.length ; i++){
                 if(priorities[i] == pq.peek()){
-                    if(i == location) return ans;
+                    if(i == location) return answer;
+                    answer++;
                     pq.poll();
-                    ans ++;
-                }
+                } 
             }
         }
         return -1;
