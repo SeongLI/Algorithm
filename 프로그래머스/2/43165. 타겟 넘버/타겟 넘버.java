@@ -1,24 +1,22 @@
 class Solution {
-    
-    public static int answer;
+    public static int count = 0;
     
     public int solution(int[] numbers, int target) {
-        
-        answer = 0;
-        dfs(numbers, target, 0, 0);
-        
-        return answer;
-        
+        func(numbers, 0 , 0, target);
+        return count ;
     }
     
-    public void dfs(int[] numbers, int target, int index, int sum){
-        if(index == numbers.length){
-            if(target == sum) answer ++;
-            return;
-        }
+    public static void func(int[] numbers, int index, int sum, int target){
         
-        // + OR -
-        dfs(numbers, target, index+1, sum + numbers[index]);
-        dfs(numbers, target, index+1, sum - numbers[index]);
+            if(index == numbers.length && sum == target) count++;
+            if(index == numbers.length)  return;
+        
+            // if(index == numbers.length){
+            //     if(target == sum) count++;
+            //     return;
+            // }
+        
+            func(numbers, index + 1, sum + numbers[index], target);
+            func(numbers, index + 1, sum - numbers[index], target);
     }
 }
