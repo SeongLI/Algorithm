@@ -10,7 +10,8 @@ class Solution {
         for(int i = 0 ; i < photo.length ; i++){
             int point = 0;
             for(int j = 0 ; j < photo[i].length ; j++){
-                point += map.getOrDefault(photo[i][j], 0);    
+                // point += map.getOrDefault(photo[i][j], 0);    
+                if(map.containsKey(photo[i][j])) point+= map.get(photo[i][j]);
             }
             answer[i] = point;
         }
