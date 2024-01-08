@@ -25,7 +25,6 @@ class Solution {
             for(int j = 0 ; j < index ; j++){
                 temp_s += 1;
                 if(temp_s > 'z') temp_s = 'a';
-                // if(list.contains(temp_s)){
                 while(list.contains(temp_s)){
                     temp_s += 1;
                     if(temp_s > 'z') temp_s = 'a';
