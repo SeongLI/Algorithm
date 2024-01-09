@@ -1,27 +1,24 @@
-import java.util.*;
-
 class Solution {
     public int solution(String name) {
-        int answer = 0;
-        int name_len = name.length();
-        int move_min = name_len - 1; // 이동횟수 초기화
+        int ans = 0;
+        char[] ch_arr = new char[name.length()];
         
-        // 알파벳 이동(x) + 이동 경로 최소화
-        for(int i = 0 ; i < name_len ; i++){
-            int x = Math.min( name.charAt(i) - 'A' , 'Z' - name.charAt(i) + 1); // 첫 시작이 'A'
-            answer += x; // 알파벳 변경에 필요한 최소 횟수
+        int move_min = name.length()-1; // 최단거리 초기 셋팅
+        
+        for(int i = 0 ; i < name.length() ; i++){
+            ch_arr[i] = name.charAt(i);
             
-            // 현 위치에서 뒤로
-            int next = i+1; // 다음 위치
-            while(next < name_len && name.charAt(next) == 'A') next++;
+            ans += Math.min(('Z' - ch_arr[i]) + 1, (ch_arr[i] - 'A')); // 단어 맞추기
             
-            // i + name_len - next : 왼쪽으로 위치 확인
-            move_min = Math.min( move_min, i + name_len - next + ( i ) );
-            // i가 아니라 name_len - next 가 될 경우도 생각
-            move_min = Math.min( move_min, i + name_len - next + (name_len - next) );
+            int next = i+1;
+            while(next < name.length() && (name.charAt(next) == 'A')) next++;
             
+            // 총 길이
+            move_min = Math.min( move_min, i*2 + name.length() - next ); // i + i : 갔다 돌아오는것
+            move_min = Math.min( move_min, i + (name.length() - next)*2 );
         }
-        
-        return answer + move_min;
+        ans += move_min;
+        return ans;
+    
     }
 }
