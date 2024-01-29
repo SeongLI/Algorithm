@@ -20,7 +20,7 @@ class Solution {
         // 2 1 2 1
         // 2 2 1 1
         // 2 2 2
-        for(int i = 3 ; i <= 2000 ; i++){
+        for(int i = 3 ; i <= n ; i++){
             dp[i] = (dp[i-2] + dp[i-1]) % 1234567;
         }
         return dp[n] ;
