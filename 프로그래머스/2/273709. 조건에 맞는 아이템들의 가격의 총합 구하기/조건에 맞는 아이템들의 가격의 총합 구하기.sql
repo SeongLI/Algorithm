@@ -1,5 +1,5 @@
--- 회귀도가 LEGEND
--- 가격의 총 합 AS TOTAL_PRICE
+-- 희귀도가 'LEGEND'인 아이템들의 가격의 총합
+-- 컬럼명 'TOTAL_PRICE'
 SELECT SUM(PRICE) AS TOTAL_PRICE
 FROM ITEM_INFO
 WHERE RARITY = 'LEGEND'
