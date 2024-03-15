@@ -1,64 +1,39 @@
+// 재귀를 돌린다.
+// 중복을 확인한다.
+// 개수를 출력한다.
 import java.util.*;
 class Solution {
-    public static char[] paper;
-    public static boolean[] visited;
-    public static ArrayList<Integer> list;
-        
+    public static HashSet<Integer> set = new HashSet<>();
     public int solution(String numbers) {
-        paper = new char[numbers.length()];
-        visited = new boolean[numbers.length()];
-        list = new ArrayList<>();
+        
+        rec("", numbers); // 붙인것, 나머지
+        
+        int cnt = 0;
+        for(int value : set){
+            // System.out.println(value);
+            if(isPrime(value)) cnt++;
+        }
+        
+        return cnt;
+    }
+    
+    public static void rec(String before, String numbers){
+        if(!before.equals("")){
+            int temp = Integer.parseInt(before);
+            set.add(temp);
+        }
         
         for(int i = 0 ; i < numbers.length() ; i++){
-            paper[i] = numbers.charAt(i);
+            rec(before + numbers.charAt(i), numbers.substring(0,i) + numbers.substring(i+1));
         }
-        
-        dfs("", 0);
-        
-        int size = list.size();
-        
-        // int test = 0;
-        // while(test < size){
-        //     System.out.println(list.get(test));
-        //     test++;
-        // }
-        
-        return size;
     }
     
-    // 백트랙킹
-    public static void dfs(String temp, int index){
-        
-        if(!temp.equals("")){
-            int num = Integer.parseInt(temp);
-
-            if(!list.contains(num)){
-                if(isPrime(num)) list.add(num);
-            }
-        }
-        
-        if(index == paper.length) return; // 기저 조건
-        
-        for(int i = 0 ; i < paper.length ; i++){
-            if(!visited[i]){
-                visited[i] = true;
-                String add_temp = temp + paper[i];
-                dfs(add_temp, index+1);
-                visited[i] = false;
-            }
-        }        
-    }
-    
-    // 소수인지 체크
     public static boolean isPrime(int num){
-        if(num == 0 || num == 1) return false;
+        if(num <= 1) return false;
         
-        for(int i = 2 ; i <= Math.sqrt(num) ; i++){
-            if(num % i == 0) return false; 
+        for(int i = 2 ; i * i <= num ; i++){
+            if(num % i == 0) return false;
         }
-        
         return true;
     }
-    
-    
 }
